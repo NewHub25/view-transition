@@ -1,9 +1,71 @@
+:root {
+  --bar-bg: rgb(6, 44, 121);
+  --main-bg: rgb(54, 132, 196);
+  --c: #eee;
+  --bar-w: 15rem;
+}
 * {
   min-width: 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: var(--c);
 }
 body {
   min-height: 100vh;
+  font-size: 1.25rem;
+  padding-inline-start: var(--bar-w);
+}
+nav {
+  position: fixed;
+  background-color: var(--bar-bg);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--bar-w);
+  padding-block: 2rem;
+  ul {
+    list-style: none;
+  }
+}
+main {
+  padding: 3rem;
+  background-color: var(--main-bg);
+  min-height: 100vh;
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+li {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+li:nth-child(1) a {
+  view-transition-name: test;
+}
+
+li:nth-child(2) a {
+  view-transition-name: test-2;
+}
+
+li:nth-child(3) a {
+  view-transition-name: test-3;
+}
+
+li:has([aria-current]) {
+  background-color: var(--main-bg);
+  view-transition-name: current;
+  border-radius: 100vw 0 0 100vw;
+  z-index: -1;
+  position: relative;
+}
+::view-transition-group(current) {
+  animation-duration: 500ms;
 }
