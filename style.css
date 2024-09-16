@@ -47,18 +47,19 @@ li {
     text-decoration: none;
   }
 }
+/* the "current" view-transition doesn't effect this transitions */
 li:nth-child(1) a {
-  view-transition-name: test;
+  view-transition-name: link;
 }
-
 li:nth-child(2) a {
-  view-transition-name: test-2;
+  view-transition-name: link-2;
 }
-
 li:nth-child(3) a {
-  view-transition-name: test-3;
+  view-transition-name: link-3;
 }
-
+@view-transition {
+  navigation: auto;
+}
 li:has([aria-current]) {
   background-color: var(--main-bg);
   view-transition-name: current;
